@@ -1,3 +1,4 @@
+#VPC claim
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -10,6 +11,7 @@ spec:
     requests:
       storage: 2Gi
 ---
+# actual pod deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -50,6 +52,7 @@ spec:
         secret:
           secretName: pypi-auth-secret
 ---
+# Service deployment
 apiVersion: v1
 kind: Service
 metadata:
@@ -64,6 +67,7 @@ spec:
   selector:
     app: pypi-server
 ---
+# Ingress deployment
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
